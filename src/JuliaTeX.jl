@@ -21,31 +21,31 @@ function tex_w(fname::Union{String},ftex::Union{String})
 end
 
 function tex_perc(in::Number)
-	out = "$(round(Int,100*in))\\\%%"
+	"$(round(Int,100*in))\\\%%"
 end
 
 function tex_int(in::Number)
-	out = "$(round(Int,in))%"
+	"$(round(Int,in))%"
 end
 
 function tex_int(in::Number,place::Int64)
-	out = "$(round(in,place))%"
+	@sprintf("%4.0f %%",in)
 end
 
 function tex_3(in::Number)
-	out = "$(round(in,3))%"
+	"$(round(in,3))%"
 end
 
 function tex_2(in::Number)
-	out = "$(round(in,2))%"
+	"$(round(in,2))%"
 end
 
 function tex_1(in::Number)
-	out = "$(round(in,1))%"
+	@sprintf("%4.1f %%",in)
 end
 
 function tex_se(in::Number)
-	out = "($(round(in,3)))%"
+  @sprintf("(%3.2f)%%",in)
 end
 
 function tex_results(
