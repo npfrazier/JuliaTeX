@@ -72,10 +72,6 @@ function tex_results(
     p = 2*(1 - 0.5 * erfc(-0.7071 * abs(t)))
   end
 
-  function r2(in::Union{Real,Array}) # short wrapper function for round to 2nd place
-      round(in,2)
-  end
-
   fid = open(dir*"/theta_out.tex","w")
   [write(fid,"\n$(names[ii]) \n & $(tex_2(x[ii]))\n & $(tex_se(se[ii]))\n &$(tex_2(t[ii]))\n &$(tex_2(p[ii]))\n \\\\" ) for ii in 1:ntheta]
   close(fid)
