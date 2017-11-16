@@ -1,7 +1,7 @@
 
 module JuliaTeX
 
-using Distributions
+using Distributions, Formatting
 
 export
     tex_w,
@@ -21,31 +21,27 @@ function tex_w(fname::Union{String},ftex::Union{String})
 end
 
 function tex_perc(in::Number)
-	"$(round(Int,100*in))\\\%%"
+	format("{:> 9.2f}%",100*in)
 end
 
 function tex_int(in::Number)
-	"$(round(Int,in))%"
-end
-
-function tex_int(in::Number,place::Int64)
-	@sprintf("%4.0f %%",in)
+	format("{:> 9.0d}%",in)
 end
 
 function tex_3(in::Number)
-	"$(round(in,3))%"
+	format("{:> 9.3f}%",in)
 end
 
 function tex_2(in::Number)
-	"$(round(in,2))%"
+	format("{:> 9.2f}%",in)
 end
 
 function tex_1(in::Number)
-	@sprintf("%4.1f %%",in)
+	format("{:> 9.1f}%",in)
 end
 
 function tex_se(in::Number)
-  @sprintf("(%3.2f)%%",in)
+  format("({:.2f})%",in)
 end
 
 function tex_results(
